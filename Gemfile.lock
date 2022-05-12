@@ -82,8 +82,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    email_prefixer (1.2.0)
-      rails (>= 4.0)
     email_validator (2.2.3)
       activemodel
     erubi (1.10.0)
@@ -124,8 +122,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
-    rack-mini-profiler (2.3.4)
-      rack (>= 1.2.0)
     rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
@@ -215,21 +211,18 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
-  x86_64-darwin-20
   x86_64-darwin-21
 
 DEPENDENCIES
   autoprefixer-rails
   bootsnap (>= 1.4.4)
   devise (~> 4.7)
-  email_prefixer
   email_validator
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
-  rack-mini-profiler (~> 2.0)
   rails (~> 6.1.6)
   react-rails
   sass-rails (>= 6)
