@@ -46,9 +46,6 @@ gem "autoprefixer-rails"
 # Email validation
 gem "email_validator"
 
-# Adds prefix to subject in emails
-gem "email_prefixer"
-
 group :development, :test do
 
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
