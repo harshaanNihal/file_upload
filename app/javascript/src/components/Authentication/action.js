@@ -13,13 +13,13 @@ let axiosConfig = {
 
 console.log(axiosConfig)
 
-const login = payload => axios.post("api/v1/login", { user: payload }, axiosConfig);
+export const login = payload => axios.post("api/v1/login", { user: payload }, axiosConfig);
 
-const logout = () => axios.delete("api/v1/logout");
+export const logout = () => axios.delete("api/v1/logout");
 
 
 
-const signup = ({
+export const signup = ({
   email,
   firstName: first_name,
   lastName: last_name,
@@ -35,11 +35,3 @@ const signup = ({
       password_confirmation,
     },
   }, axiosConfig);
-
-const authenticationApi = {
-  login,
-  logout,
-  signup,
-};
-
-export default authenticationApi;

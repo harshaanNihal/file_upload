@@ -15,9 +15,9 @@ class Api::V1::UsersController < Api::V1::BaseController
       render json: { user: user, auth_token: user.authentication_token }
   end
 
-  def destroy
-    @user.destroy!
-  end
+  # def destroy  #Unused
+  #   @user.destroy!
+  # end
 
   private
 

@@ -1,33 +1,19 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-import { Navigate } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
+import { isPresent } from "../../common/utils";
+import { useUserAuth } from "../../contexts/userAuth";
 
 const PrivateRoute = ({
   children,
-  condition,
   redirectRoute,
+  ...props
 }) => {
-  if (!condition) {
-    return (
-      <Navigate
-        to={{
-          pathname: redirectRoute,
-          from: props.location,
-        }}
-      />
-    );
-  }
+  const [{user, authToken}, userAuthDispatch] = useUserAuth();
+  const isLoggedIn = isPresent(user) && isPresent(authToken)
 
-  return children
-};
 
-PrivateRoute.propTypes = {
-  children: PropTypes.func,
-  condition: PropTypes.bool,
-  location: PropTypes.object,
-  path: PropTypes.string,
-  redirectRoute: PropTypes.string,
+  return isLoggedIn ? children : <Navigate to='/login' />
 };
 
 export default PrivateRoute;

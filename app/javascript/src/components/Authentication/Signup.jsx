@@ -1,37 +1,22 @@
 import React, { useState } from "react";
 import { Form, Formik } from "formik";
+import logo from "images/logo.png";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@bigbinary/neetoui";
 import { Input } from "@bigbinary/neetoui/formik";
 
-import authenticationApi from "../../apis/authentication";
-
-export const INITIAL_VALUES = {
-  email: "",
-  firstName: "",
-  lastName: "",
-  password: "",
-  passwordConfirmation: "",
-};
-
-export const VALIDATION_SCHEMA = yup.object().shape({
-  email: yup.string().email("Invalid email address").required("Required"),
-  firstName: yup.string().required("Required"),
-  lastName: yup.string().required("Required"),
-  password: yup.string().required("Required"),
-  passwordConfirmation: yup
-    .string()
-    .oneOf([yup.ref("password")], "Passwords must match")
-    .required("Required"),
-});
+import {signup} from "./action";
+import { SIGNUP_INITIAL_VALUES, SIGNUP_VALIDATION_SCHEMA } from "./constant";
 
 const Signup = ({ history }) => {
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async formData => {
     try {
-      const data = await authenticationApi.signup(formData);
-      console.log(data);
+      const data = await signup(formData);
+      navigate("/login");
 
     } catch (error) {
       console.log(error);
@@ -45,14 +30,15 @@ const Signup = ({ history }) => {
           Signup
         </h2>
         <Formik
-          initialValues={INITIAL_VALUES}
+          initialValues={SIGNUP_INITIAL_VALUES}
           validateOnBlur={submitted}
           validateOnChange={submitted}
           onSubmit={handleSubmit}
-          validationSchema={VALIDATION_SCHEMA}
+          validationSchema={SIGNUP_VALIDATION_SCHEMA}
         >
           {({ isSubmitting }) => (
             <Form className="w-full space-y-6 rounded-md border bg-white p-8 shadow">
+            <img src={logo} alt="logo" className="center mx-auto" />
               <Input
                 required
                 name="email"
