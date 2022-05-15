@@ -1,0 +1,41 @@
+diff --git a/node_modules/react-toastify/dist/ReactToastify.css b/node_modules/react-toastify/dist/ReactToastify.css
+index 6b18803..6c02410 100644
+--- a/node_modules/react-toastify/dist/ReactToastify.css
++++ b/node_modules/react-toastify/dist/ReactToastify.css
+@@ -2,9 +2,9 @@
+   --toastify-color-light: #fff;
+   --toastify-color-dark: #121212;
+   --toastify-color-info: #3498db;
+-  --toastify-color-success: #07bc0c;
++  --toastify-color-success: #00c851;
+   --toastify-color-warning: #f1c40f;
+-  --toastify-color-error: #e74c3c;
++  --toastify-color-error: #ff4444;
+   --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+   --toastify-icon-color-info: var(--toastify-color-info);
+   --toastify-icon-color-success: var(--toastify-color-success);
+@@ -31,13 +31,21 @@
+     #007aff,
+     #34aadc,
+     #5856d6,
+-    #ff2d55
++    #ff2d55,
++    #bb86fc
+   );
+   --toastify-color-progress-dark: #bb86fc;
+   --toastify-color-progress-info: var(--toastify-color-info);
+-  --toastify-color-progress-success: var(--toastify-color-success);
++  --toastify-color-progress-success: linear-gradient(
++    to right,
++    #BADDA5,
++    #40B49D,
++    #82C99D,
++    #004d7a, #008793, #00bf72, #a8eb12
++  );
+   --toastify-color-progress-warning: var(--toastify-color-warning);
+-  --toastify-color-progress-error: var(--toastify-color-error);
++  --toastify-color-progress-error: linear-gradient(to right,
++      #da55bd, #ea3c9e, #f3217c, #f30657, #eb1230);
+ }
+ 
+ .Toastify__toast-container {

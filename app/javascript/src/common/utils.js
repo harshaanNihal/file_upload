@@ -26,7 +26,7 @@ export const setAxiosAuthHeaders = (callback = () => null) => {
     axios.defaults.headers["X-Auth-Email"] = email;
     axios.defaults.headers["X-Auth-Token"] = token;
   }
-  callback(false);
+  callback(true);
 };
 
 export const resetAxiosAuthTokens = () => {
@@ -51,7 +51,7 @@ const handleSuccessResponse = response => {
 
 const handleErrorResponse = (error, userAuthDispatch) => {
   if (error.response?.status === 401) {
-    authDispatch({ type: "LOGOUT" });
+    userAuthDispatch({ type: "LOGOUT" });
     toast.error(error.response?.data?.error);
   } else {
     toast.error(error.response?.data?.error || error.message);

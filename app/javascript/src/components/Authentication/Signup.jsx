@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import logo from "images/logo.png";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@bigbinary/neetoui";
 import { Input } from "@bigbinary/neetoui/formik";
 
 import {signup} from "./action";
 import { SIGNUP_INITIAL_VALUES, SIGNUP_VALIDATION_SCHEMA } from "./constant";
+import { toast } from "react-toastify";
 
 const Signup = ({ history }) => {
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = async formData => {
     try {
       const data = await signup(formData);
-      navigate("/login");
+      history.push("/login");
+      toast.success("SignUp Succesfully")
 
     } catch (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
 

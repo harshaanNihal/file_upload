@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import logo from "images/logo.png";
 
 import { Form, Formik } from "formik";
@@ -14,9 +13,8 @@ import {
 import { useUserAuthDispatch } from "../../contexts/userAuth";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const Login = ({history}) => {
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate()
   const userAuthDispatch = useUserAuthDispatch();
 
   const handleSubmit = async ({ email, password }) => {
@@ -24,12 +22,12 @@ const Login = () => {
       const {
         data: { auth_token, user },
       } = await login({ email, password });
-      console.log(auth_token,user)
+      console.log(auth_token,user,email)
 
       userAuthDispatch({ type: "LOGIN", payload: { auth_token, email, user } })
       toast.success("Login Successful")
       console.log(user)
-      navigate('/',{replace: true});
+      history.push('/',{replace: true});
     } catch (error) {
       console.log(error)
 
