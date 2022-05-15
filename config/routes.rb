@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
 
       resources :users, only: [:show, :create, :destroy]
+      resources :documents, only: [:index, :create, :update, :destroy]
     end
   end
 

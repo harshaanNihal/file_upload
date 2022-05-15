@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   before_save :ensure_authentication_token_is_present
 
+  has_many :documents, dependent: :delete_all
+
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true
   validates :password_confirmation, presence: true, on: :create
