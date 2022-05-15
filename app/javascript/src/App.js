@@ -1,9 +1,9 @@
 import React from "react";
+import Main from "./components/Main";
 
-// import Main from "";
 
 const App = props => (
-  <div>hello world</div>
+  <Main {...props} />
 );
 
 export default App;

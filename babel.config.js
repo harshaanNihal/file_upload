@@ -50,7 +50,6 @@ module.exports = function (api) {
       ["@babel/plugin-proposal-private-property-in-object", { loose: true }],
       "babel-plugin-macros",
       "@babel/plugin-syntax-dynamic-import",
-      "js-logger",
       isTestEnv && "babel-plugin-dynamic-import-node",
       "@babel/plugin-transform-destructuring",
       [
