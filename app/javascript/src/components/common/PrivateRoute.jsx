@@ -1,14 +1,12 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import { Navigate, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({
-  component: Component,
+  children,
   condition,
-  path,
   redirectRoute,
-  ...props
 }) => {
   if (!condition) {
     return (
@@ -21,11 +19,11 @@ const PrivateRoute = ({
     );
   }
 
-  return <Route path={} component={Component} {...props} />;
+  return children
 };
 
 PrivateRoute.propTypes = {
-  component: PropTypes.func,
+  children: PropTypes.func,
   condition: PropTypes.bool,
   location: PropTypes.object,
   path: PropTypes.string,

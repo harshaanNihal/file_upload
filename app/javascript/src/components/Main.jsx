@@ -11,8 +11,8 @@ const Main = props => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Signup />} /> */}
-        <div>xyz</div>
+        <Route path="/" element={<Signup />} />
+        {/* <Route path="/" element={<div>xxxxxx</div>} /> */}
       </Routes>
     </BrowserRouter>
   );

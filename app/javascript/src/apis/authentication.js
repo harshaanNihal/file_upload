@@ -1,8 +1,23 @@
 import axios from "axios";
+// import { getCSFToken } from "../common";
 
-const login = payload => axios.post("api/v1/login", { user: payload });
+let axiosConfig = {
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "X-CSRF-TOKEN":document
+    .querySelector('[name="csrf-token"]')
+    .getAttribute("content")
+  }
+};
+
+console.log(axiosConfig)
+
+const login = payload => axios.post("api/v1/login", { user: payload }, axiosConfig);
 
 const logout = () => axios.delete("api/v1/logout");
+
+
 
 const signup = ({
   email,
@@ -19,7 +34,7 @@ const signup = ({
       password,
       password_confirmation,
     },
-  });
+  }, axiosConfig);
 
 const authenticationApi = {
   login,

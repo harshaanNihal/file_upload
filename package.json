@@ -6,6 +6,10 @@
     "start": "bundle exec rails s -p 3000",
     "postinstall": "patch-package"
   },
+  "resolutions": {
+    "**/react": "18.1.0",
+    "**/react-dom": "18.1.0"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.16.7",
     "@bigbinary/neeto-icons": "^1.8.35",
@@ -17,14 +21,17 @@
     "babel-preset-react": "^6.24.1",
     "core-js": "3.21.1",
     "formik": "^2.2.9",
+    "mini-css-extract-plugin": "^2.6.0",
     "patch-package": "^6.4.7",
+    "postcss-cli": "^9.1.0",
     "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-router-dom": "6",
+    "react-router-dom": "6.3.0",
     "react-toastify": "^9.0.1",
-    "react_ujs": "^2.6.1",
+    "react_ujs": "^2.6.2",
+    "tailwindcss": "^3.0.24",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
@@ -32,7 +39,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
-    "autoprefixer": "^10.2.5",
+    "autoprefixer": "^10.4.7",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
