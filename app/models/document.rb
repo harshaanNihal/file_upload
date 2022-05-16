@@ -20,7 +20,7 @@ class Document < ApplicationRecord
     if Rails.env.development?
       base_url = 'localhost:3000'
     elsif Rails.env.production?
-      base_url = Rails.application.credentials[:production][:host]
+      base_url = ENV['HOST_URL']
     end
     Rails.application.routes.url_helpers.rails_blob_url(self.file, host: base_url)
   end
@@ -29,7 +29,7 @@ class Document < ApplicationRecord
     if Rails.env.development?
       base_url = 'localhost:3000'
     elsif Rails.env.production?
-      base_url = Rails.application.credentials[:production][:host]
+      base_url = ENV['HOST_URL']
     end
     Rails.application.routes.url_helpers.short_url(slug: self.slug, host: base_url)
   end
