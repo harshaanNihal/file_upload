@@ -6,6 +6,7 @@ default: &default
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
+  check_yarn_integrity: false
   webpack_compile_output: true
 
   # Additional paths webpack should lookup modules
@@ -52,6 +53,9 @@ development:
   <<: *default
   compile: true
 
+  # Verifies that correct packages and versions are installed by inspecting package.json, yarn.lock, and node_modules
+  check_yarn_integrity: true
+
   # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
     https: false
@@ -66,7 +70,6 @@ development:
     disable_host_check: true
     use_local_ip: false
     quiet: false
-    pretty: false
     headers:
       'Access-Control-Allow-Origin': '*'
     watch_options:
@@ -79,6 +82,30 @@ test:
 
   # Compile test packs to a separate directory
   public_output_path: packs-test
+
+heroku:
+  <<: *default
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  compile: false
+
+  # Extract and emit a css file
+  extract_css: true
+
+  # Cache manifest.json for performance
+  cache_manifest: true
+
+staging:
+  <<: *default
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  compile: false
+
+  # Extract and emit a css file
+  extract_css: true
+
+  # Cache manifest.json for performance
+  cache_manifest: true
 
 production:
   <<: *default
