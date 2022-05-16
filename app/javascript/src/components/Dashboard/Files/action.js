@@ -6,7 +6,8 @@ const config = {
   },
 };
 
-export const getFiles = () => axios.get("api/v1/documents");
+export const getFiles = () => {
+  return axios.get("api/v1/documents")};
 export const createFile = payload => axios.post("api/v1/documents", payload, config);
 export const updateFile = (id, payload) =>
   axios.put(`api/v1/documents/${id}`, payload, config);

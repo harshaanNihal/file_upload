@@ -23,9 +23,8 @@ const Login = ({history}) => {
         data: { auth_token, user },
       } = await login({ email, password });
 
-      userAuthDispatch({ type: "LOGIN", payload: { auth_token, email, user } })
-      toast.success("Login Successful")
-      history.push('/',{replace: true});
+      await userAuthDispatch({ type: "LOGIN", payload: { auth_token, email, user } })
+      history.push('/documents');
     } catch (error) {
       toast.error(error);
     }

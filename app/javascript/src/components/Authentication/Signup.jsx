@@ -16,8 +16,6 @@ const Signup = ({ history }) => {
     try {
       const data = await signup(formData);
       history.push("/login");
-      toast.success("SignUp Succesfully")
-
     } catch (error) {
       toast.error(error);
     }

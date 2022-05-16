@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-// import EmptyFilesListImage from "images/EmptyFilesList";
+import EmptyFilesListImage from "images/EmptyFilesList";
 import { Button, PageLoader } from "@bigbinary/neetoui";
 import { Container, Header, SubHeader } from "@bigbinary/neetoui/layouts";
 
-// import EmptyState from "components/Common/EmptyState";
 
 import NewFilePane from "./Pane/Create";
 import Table from "./Table";
 import { toast } from "react-toastify";
 import { getFiles } from "./action";
+import EmptyState from "../../common/EmptyState";
 
 const Files = () => {
   const [loading, setLoading] = useState(true);
@@ -62,8 +62,13 @@ const Files = () => {
           />
         </>
       ) : (
-
-        null
+        <EmptyState
+          image={EmptyFilesListImage}
+          title="Looks like you don't have any files!"
+          subtitle="Add your files to send customized emails to them."
+          primaryAction={() => setShowNewFilePane(true)}
+          primaryActionLabel="Add New File"
+        />
       )}
       <NewFilePane
         showPane={showNewFilePane}

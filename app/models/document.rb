@@ -16,13 +16,22 @@ class Document < ApplicationRecord
     true
   end
 
-  def tiny_url
+  def file_url
     if Rails.env.development?
       base_url = 'localhost:3000'
     elsif Rails.env.production?
       base_url = Rails.application.credentials[:production][:host]
     end
     Rails.application.routes.url_helpers.rails_blob_url(self.file, host: base_url)
+  end
+
+  def tiny_url
+    if Rails.env.development?
+      base_url = 'localhost:3000'
+    elsif Rails.env.production?
+      base_url = Rails.application.credentials[:production][:host]
+    end
+    Rails.application.routes.url_helpers.short_url(slug: self.slug, host: base_url)
   end
 
 end

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/document/:slug', to: 'api/v1/documents#show'
+  get '/document/:slug', to: 'api/v1/documents#show' , as: 'short'
 
   root "home#index"
   match "*path", via: :all, to: "home#index", constraints: lambda { |req|

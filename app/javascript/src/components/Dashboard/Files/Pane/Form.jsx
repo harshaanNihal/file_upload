@@ -6,7 +6,6 @@ import { Input, Textarea } from "@bigbinary/neetoui/formik";
 
 import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
 import { createFile, destroyFile, updateFile } from "../action";
-import { toast } from "react-toastify";
 
 export default function FileForm({ onClose, refetch, fileData, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
@@ -93,7 +92,7 @@ export default function FileForm({ onClose, refetch, fileData, isEdit }) {
               disabled={isSubmitting}
               loading={isSubmitting}
               onClick={() => {setSubmitted(true)
-                // handleDelete()
+                handleDelete()
               }}
             />)}
 

@@ -12,7 +12,6 @@ const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
 });
 
 const bytesToSize = (bytes) => {
-  console.log(bytes,'bytes',typeof bytes)
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
   if (bytes === 0) return 'n/a'
   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10)

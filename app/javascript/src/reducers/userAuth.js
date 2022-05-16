@@ -5,7 +5,7 @@ const userAuthReducer = (state, { type, payload }) => {
     case "LOGIN": {
       setToLocalStorage ("authToken", payload.auth_token);
       setToLocalStorage("authEmail", payload.email);
-      setAxiosAuthHeaders
+      setAxiosAuthHeaders()
       return {
         ...state,
         isLoggedIn: true,

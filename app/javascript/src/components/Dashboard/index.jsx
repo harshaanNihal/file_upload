@@ -10,7 +10,6 @@ const Dashboard = () => (
     <Sidebar />
     <Switch>
       <Route exact key='/documents' path='/documents' component={Files} />
-      <Redirect to='/documents' />
     </Switch>
   </div>
 );

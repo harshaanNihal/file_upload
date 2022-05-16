@@ -26,8 +26,12 @@ class Api::V1::DocumentsController < Api::V1::BaseController
   # end
 
   def show
-    @document = current_user.documents.find_by_slug(params[:id])
-    redirect
+    @document = Document.find_by_slug(params[:slug])
+    if @document.present?
+      redirect_to @document.file_url
+    else
+      respond_with_error(t("not_found", entity: "File"), :not_found)
+    end
   end
 
 
