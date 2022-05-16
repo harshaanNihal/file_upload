@@ -5,6 +5,7 @@ class CreateDocuments < ActiveRecord::Migration[6.0]
     create_table :documents, id: :uuid do |t|
       t.string :title
       t.string :description
+      t.string :slug
       t.references :user, type: :uuid
 
       t.timestamps

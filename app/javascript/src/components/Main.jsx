@@ -40,8 +40,6 @@ const Main = props => {
     );
   }
 
-  console.log("Main", userFromContext, authToken, isLoggedIn, state);
-
   return (
     <BrowserRouter>
       <Switch>

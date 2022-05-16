@@ -11,8 +11,6 @@ let axiosConfig = {
   }
 };
 
-console.log(axiosConfig)
-
 export const login = payload => axios.post("api/v1/login", { user: payload }, axiosConfig);
 
 export const logout = () => axios.delete("api/v1/logout");

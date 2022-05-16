@@ -22,15 +22,11 @@ const Login = ({history}) => {
       const {
         data: { auth_token, user },
       } = await login({ email, password });
-      console.log(auth_token,user,email)
 
       userAuthDispatch({ type: "LOGIN", payload: { auth_token, email, user } })
       toast.success("Login Successful")
-      console.log(user)
       history.push('/',{replace: true});
     } catch (error) {
-      console.log(error)
-
       toast.error(error);
     }
   };

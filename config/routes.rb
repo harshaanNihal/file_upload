@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
-  root "home#index"
-  get "*path", to: "home#index", via: :all
+  get '/document/:slug', to: 'api/v1/documents#show'
 
+  root "home#index"
+  match "*path", via: :all, to: "home#index", constraints: lambda { |req|
+    req.path.exclude? "rails/active_storage"
+  }
 end

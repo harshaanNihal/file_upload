@@ -8,7 +8,7 @@ class DocumentCarrier
   end
 
   def initialize(document)
-    @document = invoice_expense
+    @document = document
   end
 
   def file_name
@@ -24,6 +24,6 @@ class DocumentCarrier
   end
 
   def file_url
-    document.file.url
+    @document.file.url
   end
 end
