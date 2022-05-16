@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "bundle exec rails s -p 3000",
+    "start": "bundle exec rails s",
     "postinstall": "patch-package"
   },
   "resolutions": {
