@@ -25,8 +25,8 @@ class Document < ApplicationRecord
       base_url = ENV['HOST_URL']
       return base_url + Rails.application.routes.url_helpers.rails_service_blob_path(self.file)
     end
-    rescue =>
-      nil
+    rescue
+      return nil
     end
   end
 
@@ -37,9 +37,9 @@ class Document < ApplicationRecord
       elsif Rails.env.production?
         base_url = ENV['HOST_URL']
       end
-      Rails.application.routes.url_helpers.short_url(slug: self.slug, host: base_url)
-    rescue =>
-      nil
+      return  Rails.application.routes.url_helpers.short_url(slug: self.slug, host: base_url)
+    rescue
+      return nil
     end
   end
 
