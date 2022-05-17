@@ -25,17 +25,20 @@ const Table = ({ files = [], fetchFiles }) => {
     render: props => {
       return (
         <div className="flex flex-row justify-around">
-        <a href={props.file_url}>
+        {props.file_url && (
+          <>
+
+          <a href={props.file_url}>
           <Icon IconType={Eye} />
         </a>
 
         <a href={props.file_url} download>
           <Icon IconType={Download} />
         </a>
-        <a>
+          </>)
+        }
 
-        </a>
-        <Icon IconType={Share} onClick={() =>copyToClipboard(props.tiny_url) } />
+        {props.tiny_url && <Icon IconType={Share} onClick={() =>copyToClipboard(props.tiny_url) } />}
         <Icon IconType={Delete} onClick={() => handleDelete(props.id)} />
         </div>
       );
