@@ -9,7 +9,7 @@ const Dashboard = () => (
   <div className="flex h-screen w-full">
     <Sidebar />
     <Switch>
-      <Route exact key='/documents' path='/documents' component={Files} />
+      <Files />
     </Switch>
   </div>
 );
